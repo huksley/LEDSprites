@@ -308,7 +308,7 @@ void cSprite::SetPosition(int16_t X, int16_t Y)
 
 void cSprite::SetFrame(uint8_t Frame, uint8_t FrameRate)
 {
-  m_Frame = max(m_NumFrames - 1, Frame);
+  m_Frame = _max(m_NumFrames - 1, Frame);
   m_FrameRate = m_CounterFrame = FrameRate;
 }
 
@@ -537,10 +537,10 @@ void cLEDSprites::DetectCollisions(cSprite *srcSpr)
               colMask[partX] = (uint8_t *)&colSpr[partX]->m_Mask[(colSpr[partX]->m_Frame * colSpr[partX]->m_MaskSize) + (xoff / 8)];
               colMask[1 - partX] = (uint8_t *)&colSpr[1 - partX]->m_Mask[(colSpr[1 - partX]->m_Frame * colSpr[1 - partX]->m_MaskSize)];
               colXBit = xoff % 8;
-              colXCnt = min(colSpr[partX]->m_Width - xoff, colSpr[1 - partX]->m_Width);
+              colXCnt = _min(colSpr[partX]->m_Width - xoff, colSpr[1 - partX]->m_Width);
               yoff = (colSpr[partY]->m_Y + colSpr[partY]->m_Height) - (colSpr[1 - partY]->m_Y + colSpr[1 - partY]->m_Height);
               colMask[partY] = (uint8_t *)&colMask[partY][yoff * ((colSpr[partY]->m_Width + 7) / 8)];
-              colYCnt = min(colSpr[partY]->m_Height - yoff, colSpr[1 - partY]->m_Height);
+              colYCnt = _min(colSpr[partY]->m_Height - yoff, colSpr[1 - partY]->m_Height);
               for (; colYCnt>0; --colYCnt)
               {
                 uint8_t x = 0;
