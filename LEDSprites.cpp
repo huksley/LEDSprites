@@ -3,10 +3,10 @@ LEDSprites V5 class by Aaron Liddiment (c) 2015
 
 Inspiration came from my old C64 days :)
 
-FastLED v3.1 library by Daniel Garcia and Mark Kriegsmann.
 Written & tested on a Teensy 3.1 using Arduino V1.0.5r2 & teensyduino V1.20
 */
 
+#define FASTLED_INTERNAL
 #include "FastLED.h"
 #include "LEDMatrix.h"
 #include "LEDSprites.h"
